@@ -13,6 +13,7 @@ public class projectileExplosionForce : MonoBehaviour {
 
 	public float explosionForce;
 
+	public bool isExploded = true;
 
 	void Start () {
 
@@ -20,13 +21,14 @@ public class projectileExplosionForce : MonoBehaviour {
 
 	}
 	void FixedUpdate () {
+		if (playerInRange && isExploded) {
+		
+			playerInRange.GetComponent<Rigidbody2D>().AddRelativeForce(
+				(new Vector2(playerInRange.transform.position.x - explosionPoint.position.x, playerInRange.transform.position.y - explosionPoint.position.y).normalized * explosionForce / Vector2.Distance(playerInRange.transform.position, explosionPoint.position) ), 
+				ForceMode2D.Impulse);
 
-		if (playerInRange) {
-			playerInRange.GetComponent<Rigidbody2D> ().AddRelativeForce (new Vector2 (
-				(playerInRange.transform.position.x - explosionPoint.transform.position.x) * Mathf.Pow (.5f, Mathf.Abs (playerInRange.transform.position.x - explosionPoint.transform.position.x)) * explosionForce, 
-				(playerInRange.transform.position.y - explosionPoint.transform.position.y) * Mathf.Pow (.5f, Mathf.Abs (playerInRange.transform.position.y - explosionPoint.transform.position.y)) * explosionForce)
-			, ForceMode2D.Impulse);
-		}
+			isExploded = false;
+		} 
 		Destroy (this, destroyTime);
 	}
 }
