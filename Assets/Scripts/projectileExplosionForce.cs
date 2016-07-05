@@ -21,12 +21,12 @@ public class projectileExplosionForce : MonoBehaviour {
 	}
 	void FixedUpdate () {
 
-			
-		playerInRange.GetComponent<Rigidbody2D> ().AddRelativeForce (new Vector2 (
-			(playerInRange.transform.position.x - explosionPoint.transform.position.x) * Mathf.Pow (.5f, Mathf.Abs (playerInRange.transform.position.x - explosionPoint.transform.position.x)) * explosionForce, 
-			(playerInRange.transform.position.y - explosionPoint.transform.position.y) * Mathf.Pow (.5f, Mathf.Abs (playerInRange.transform.position.y - explosionPoint.transform.position.y)) * explosionForce)
-		, ForceMode2D.Impulse);
-
+		if (playerInRange) {
+			playerInRange.GetComponent<Rigidbody2D> ().AddRelativeForce (new Vector2 (
+				(playerInRange.transform.position.x - explosionPoint.transform.position.x) * Mathf.Pow (.5f, Mathf.Abs (playerInRange.transform.position.x - explosionPoint.transform.position.x)) * explosionForce, 
+				(playerInRange.transform.position.y - explosionPoint.transform.position.y) * Mathf.Pow (.5f, Mathf.Abs (playerInRange.transform.position.y - explosionPoint.transform.position.y)) * explosionForce)
+			, ForceMode2D.Impulse);
+		}
 		Destroy (this, destroyTime);
 	}
 }
