@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8?>
+<languages>
+	<English>
+		<string name="string1">Testowy tekst</string>
+	</English>
+	<Polish>
+		<string name="string1">Testowy tekst</string>
+	</Polish>
+</languages>

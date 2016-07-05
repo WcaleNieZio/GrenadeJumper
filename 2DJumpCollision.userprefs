@@ -1,0 +1,22 @@
+﻿<Properties StartupItem="Assembly-CSharp.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\cloudGenerator.cs">
+    <Files>
+      <File FileName="Assets\Scripts\playerMovement.cs" Line="76" Column="68" />
+      <File FileName="Assets\Scripts\gunBehaviour.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\languageController.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\mouseController.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\projectileExplosionForce.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\projectileParticle.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\projectileExplosion.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\cameraBehaviour.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\projectileExploder.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\cloudGenerator.cs" Line="65" Column="1" />
+      <File FileName="Assets\Scripts\spikeBehaviour.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
