@@ -3,6 +3,8 @@ using System.Collections;
 
 public class spikeBehaviour : MonoBehaviour {
 
+	public LevelDataScript levelData;
+
 	public Transform playerTransform;
 	public Rigidbody2D playerRigidbody;
 	public Collider2D playerCollider;
@@ -13,6 +15,7 @@ public class spikeBehaviour : MonoBehaviour {
 
 	public GameObject playerCamera;
 	public GameObject playerWeapon;
+	public Vector2 spawnPosition;
 
 	bool spikeTouched = false;
 	bool particlePlayed = false;
@@ -20,6 +23,8 @@ public class spikeBehaviour : MonoBehaviour {
 
 	void Update () {
 	
+		spawnPosition = levelData.spawnPoint;
+
 		if (gameObject.GetComponent<Collider2D> ().IsTouching (playerCollider) || spikeTouched) {
 
 			spikeTouched = true;
@@ -39,7 +44,7 @@ public class spikeBehaviour : MonoBehaviour {
 			if (deathCamTime < destroyTime) {
 				
 				destroyTime = 0;
-				playerTransform.position = new Vector2 (18, 4);
+				playerTransform.position = spawnPosition;
 				playerRigidbody.isKinematic = false;
 				spikeTouched = false;
 				particlePlayed = false;
