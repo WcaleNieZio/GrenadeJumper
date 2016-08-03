@@ -27,14 +27,12 @@ public class playerMovement : MonoBehaviour {
 	public BoxCollider2D antiLandingGlitchBottom;
 	public bool isTouchingGround;
 
-
 	void Start () {
-	
+
 		player = GetComponent<Rigidbody2D> ();
 		playerTransform = GetComponent<Transform> ();
 
 	}
-	
 
 	void FixedUpdate () {
 
