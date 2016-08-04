@@ -13,6 +13,7 @@ public class mouseController : MonoBehaviour {
 
 	public Camera currentCamera;
 	public SpriteRotation initialRotation;
+	public Transform _cursorPosition;
 
 	private Vector2 _direction;
 	private Vector2 _mousePosition;
@@ -50,7 +51,7 @@ public class mouseController : MonoBehaviour {
 	void Update () {
 
 		// Tu pobieramy pozycje kursora
-		_mousePosition = currentCamera.ScreenToWorldPoint (Input.mousePosition);
+		_mousePosition = _cursorPosition.position;
 		_direction = (_mousePosition - (Vector2)_transform.position).normalized;
 
 		_angle = Mathf.Atan2 (_direction.y, _direction.x) * Mathf.Rad2Deg + (int)initialRotation;

@@ -3,36 +3,31 @@ using System.Collections;
 
 public class cursorBehaviour : MonoBehaviour {
 
-	public float cursorRadius;
 	public float limitRadius;
 	public Transform cursor;
 
+	private Vector3 lastMousePosition;
+	private Vector3 delta;
+
+
 	// Use this for initialization
 	void Start () {
-		limitRadius -= cursorRadius;
-		Cursor.visible = false;
+		Cursor.lockState = CursorLockMode.Confined;
+		Cursor.visible = true;
 	}
 
-	// Update is called once per frame
+	// Update is called once per frame4
 	void Update () {
-		LimitMouseDistance ();
+		cursorPosition ();
 	}
 
-	void LimitMouseDistance(){
+	void cursorPosition(){
 
-		Vector2 playerPos = transform.position;
-
-		float mousePosX = Camera.main.ScreenToWorldPoint (Input.mousePosition).x - playerPos.x;
-		float mousePosY = Camera.main.ScreenToWorldPoint (Input.mousePosition).y - playerPos.y;
-
-		Vector3 tempPosition = new Vector2 (mousePosX, mousePosY);
-		if (tempPosition.magnitude > 0) {
-			//tempPosition = ((tempPosition.normalized * limitRadius) + transform.position); 
-			if(tempPosition.magnitude < limitRadius)
-				tempPosition = tempPosition + transform.position;
-			else
-				tempPosition = ((tempPosition.normalized * limitRadius) + transform.position); 
+		if (lastMousePosition != Input.mousePosition) {
+			delta = (Camera.main.ScreenToWorldPoint (Input.mousePosition) - transform.position) - (Camera.main.ScreenToWorldPoint (lastMousePosition) - transform.position);
+			cursor.localPosition = Vector3.ClampMagnitude ((new Vector3 (cursor.position.x, cursor.position.y, 0) + delta) - transform.position, limitRadius);
 		}
-		cursor.position = tempPosition;
+
+		lastMousePosition = Input.mousePosition;
 	}
 }
