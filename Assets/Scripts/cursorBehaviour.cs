@@ -8,7 +8,7 @@ public class cursorBehaviour : MonoBehaviour {
 
 	private Vector3 lastMousePosition;
 	private Vector3 delta;
-
+	public bool mouseVisible;
 
 	// Use this for initialization
 	void Start () {
@@ -18,6 +18,8 @@ public class cursorBehaviour : MonoBehaviour {
 
 	// Update is called once per frame4
 	void Update () {
+		Cursor.visible = mouseVisible;
+
 		cursorPosition ();
 	}
 
